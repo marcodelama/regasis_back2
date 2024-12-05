@@ -20,6 +20,6 @@ from reconocimientoFacial import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('registrar/', views.registrarPersona),
+    path('registrar/', views.registrarPersonal),
     path('reconocer/', views.reconocerPersona),
 ]

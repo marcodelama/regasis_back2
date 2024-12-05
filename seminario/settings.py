@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-baf)#xh9ku5(^%upxx5465mi(0bmwt#6ke@!wg-t)gn_(9@=!=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['c393-181-176-49-31.ngrok-free.app', '*']
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'reconocimientoFacial'
+    'reconocimientoFacial',
 ]
 
 MIDDLEWARE = [
@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'seminario.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'orcl',                # El valor del SID especificado en la captura
+        'USER': 'PRACTICANTE',        # Usuario de la base de datos
+        'PASSWORD': '123',            # Contraseña asociada al usuario
+        'HOST': 'localhost',          # Host especificado en la captura
+        'PORT': '1521',               # Puerto especificado en la captura
     }
 }
 
@@ -117,6 +121,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+MEDIA_URL = 'https://c393-181-176-49-31.ngrok-free.app/media/'  # Ruta pública para los archivos de medios
+
+MEDIA_ROOT = BASE_DIR / 'media'  # Ruta física para guardar los archivos
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
